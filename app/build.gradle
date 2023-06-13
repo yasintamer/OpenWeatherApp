@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'dagger.hilt.android.plugin'
+
+apply from: "$rootDir/gradle/scripts/kotlin.android.gradle"
+
+android {
+    namespace = "com.yasintamer.openweatherapp"
+
+    defaultConfig {
+        applicationId "com.yasintamer.openweatherapp"
+
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation project(":presentation")
+    implementation project(":api")
+    implementation project(":data")
+
+    // Navigation
+    implementation "androidx.navigation:navigation-ui-ktx:2.6.0"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$moshi_converter_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+
+    // Image Loading Coil
+    implementation "io.coil-kt:coil:2.2.0"
+
+    // Data Store
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+}
+

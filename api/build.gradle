@@ -1,0 +1,9 @@
+apply from: "$rootDir/gradle/scripts/kotlin.gradle"
+
+dependencies {
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$coroutines_version"
+}
+

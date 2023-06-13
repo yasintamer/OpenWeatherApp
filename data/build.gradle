@@ -1,0 +1,13 @@
+apply from: "$rootDir/gradle/scripts/kotlin.gradle"
+
+
+dependencies {
+    implementation project(":api")
+
+    implementation("javax.inject:javax.inject:1")
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+}
